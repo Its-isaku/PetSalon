@@ -1,0 +1,85 @@
+/*? Global styles */
+body {
+    background-color: #FCE7C8;
+    font-family: "Lexend", sans-serif;
+}
+
+/*? Main */
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+/*? Form container */
+form {
+    background-color: #B1C29E;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/*? Form elements */
+label {
+    font-size: 1rem;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    background-color: #F0A04B;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #d88329;
+    transform: scale(1.05);
+}
+
+.appointment-btn {
+    display: inline-block;
+    background-color: #F0A04B;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer; 
+    color: black; 
+    margin: 0 auto;
+}
+
+.appointment-btn:hover {
+    background-color: #d88329;
+    transform: scale(1.1);
+}
+
+select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}

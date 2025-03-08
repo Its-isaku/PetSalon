@@ -26,20 +26,23 @@ a{
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    position: sticky; 
-    top: 0; 
-    z-index: 1000; 
-    transition: background-color 0.3s ease, padding 0.3s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.2s ease-in-out; 
 }
 
 .header-container.scrolled {
     background-color: #B1C29E;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 50px; 
-    padding: 10px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     top: 20px;
+    margin: 50px;
+    padding: 15px 40px;
+    transform: scale(1.05);
+    opacity: 0.95;
 }
+
 
 .header-container img{
     width: 200px;
@@ -117,8 +120,9 @@ a{
     text-align: left;
 }
 
-.intro-text button{
+.intro-text a{
     width: 200px;
+    text-align: center;
 }
 
 .intro-img{

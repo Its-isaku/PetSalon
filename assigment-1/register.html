@@ -7,8 +7,43 @@
     <title>Register</title>
 </head>
 <body>
-    
+    <main>
+        <h1>Register Your Pet</h1>
+        <form id="registerForm">
+            <label>Pet Name:</label>
+            <input type="text" id="petName">
+            
+            <label>Pet Age:</label>
+            <input type="number" id="petAge">
+            
+            <label>Pet Gender:</label>
+            <select type="text" id="petGender">
+                <option value="Male">Mele</option>
+                <option value="Femele">Femele</option>
+            </select>
+            
+            <label>Pet Specie:</label>
+            <select type="text" id="petSpecies">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+            </select>
+            
+            <label>Service:</label>
+            <select type="text" id="petService">
+                <option value="Grooming">Grooming</option>
+                <option value="Haircut">Haircut</option>
+                <option value="Pet bathing">Pet bathing</option>
+                <option value="Nail trim">Nail trim</option>
+            </select>
+            
+            <label>Pet Breed:</label>
+            <input type="text" id="petBreed">
+            
+            <button class="appointment-btn" id="register">Register</button>
 
-    <script src="./scripts/register.js"></script>
+        </form>
+    </main>
+
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
