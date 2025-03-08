@@ -7,41 +7,91 @@
     <title>Register</title>
 </head>
 <body>
-    <main>
-        <h1>Register Your Pet</h1>
-        <form id="registerForm">
-            <label>Pet Name:</label>
-            <input type="text" id="petName">
-            
-            <label>Pet Age:</label>
-            <input type="number" id="petAge">
-            
-            <label>Pet Gender:</label>
-            <select type="text" id="petGender">
-                <option value="Male">Mele</option>
-                <option value="Femele">Femele</option>
-            </select>
-            
-            <label>Pet Specie:</label>
-            <select type="text" id="petSpecies">
-                <option value="Dog">Dog</option>
-                <option value="Cat">Cat</option>
-            </select>
-            
-            <label>Service:</label>
-            <select type="text" id="petService">
-                <option value="Grooming">Grooming</option>
-                <option value="Haircut">Haircut</option>
-                <option value="Pet bathing">Pet bathing</option>
-                <option value="Nail trim">Nail trim</option>
-            </select>
-            
-            <label>Pet Breed:</label>
-            <input type="text" id="petBreed">
-            
-            <button class="appointment-btn" id="register">Register</button>
+    <main class="main-container">
+        <div class="form-container">
+            <div class="img-item">
+                <img src="./img/pet-salon.jpg" alt="">
+            </div>
 
-        </form>
+            <div class="form-card">
+                <h1>Register Your Pet</h1>
+
+                <form id="registerForm" class="form">
+                    <div class="input-group">
+                        <label>Pet Name:</label>
+                        <input type="text" id="petName">
+                    </div>
+                
+                    <div class="input-group">
+                        <label>Pet Age:</label>
+                        <input type="number" id="petAge">
+                    </div>
+                
+                    <div class="input-group">
+                        <label>Pet Gender:</label>
+                        <select type="text" id="petGender">
+                            <option value="" disabled selected>Select a option</option>
+                            <option value="Male">Mele</option>
+                            <option value="Femele">Femele</option>
+                        </select>
+                    </div>
+                
+                    <div class="input-group">
+                        <label>Pet Specie:</label>
+                        <select type="text" id="petSpecies">
+                            <option value="" disabled selected>Select a option</option>
+                            <option value="Dog">Dog</option>
+                            <option value="Cat">Cat</option>
+                        </select>
+                    </div>
+                
+                    <div class="input-group">
+                        <label>Service:</label>
+                        <select type="text" id="petService">
+                            <option value="" disabled selected>Select a option</option>
+                            <option value="Grooming">Grooming</option>
+                            <option value="Haircut">Haircut</option>
+                            <option value="Pet bathing">Pet bathing</option>
+                            <option value="Nail trim">Nail trim</option>
+                        </select>
+                    </div>
+                
+                    <div class="input-group">
+                        <label>Pet Breed:</label>
+                        <input type="text" id="petBreed">
+                    </div>
+                
+                    <button class="appointment-btn" id="register">Register</button>
+                    <button class="appointment-btn" id="returnHome">Go Back</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="table-card">
+            <h1>Registered Pets</h1>
+
+            <div class="total-contaiener" id="totals">
+                <p><span>Total:</span></p>
+                <p><span>Grooming:</span></p>
+                <p><span>Pet bathing:</span></p>
+                <p><span>Nail trim:</span></p>
+                
+            </div>
+
+            <table class="table-container" id="table-pets">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Specie</th>
+                        <th>Service</th>
+                        <th>Breed</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <!-- Pet objects will appear here -->
+            </table>
+        </div>
     </main>
 
     <script src="./scripts/index.js"></script>

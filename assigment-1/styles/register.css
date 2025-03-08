@@ -1,85 +1,169 @@
-/*? Global styles */
+/*? Global */
 body {
     background-color: #FCE7C8;
     font-family: "Lexend", sans-serif;
 }
 
 /*? Main */
-main{
+.main-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    margin-top: 40px;
+    gap: 30px;
 }
 
 /*? Form container */
-form {
-    background-color: #B1C29E;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 300px;
+.form-container {
+    background: #B1C29E;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.img-item{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-card{
+    flex: 1.5;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.form{
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/*? Form elements */
-label {
-    font-size: 1rem;
-    color: #333;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
 
-input[type="text"],
-input[type="number"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-input[type="submit"] {
-    background-color: #F0A04B;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
+.input-group label {
+    font-size: 14px;
     font-weight: bold;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 5px;
 }
 
-input[type="submit"]:hover {
-    background-color: #d88329;
-    transform: scale(1.05);
+.input-group input, .input-group select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
 }
 
-.appointment-btn {
-    display: inline-block;
+.appointment-btn{
     background-color: #F0A04B;
     padding: 15px 20px;
     border-radius: 10px;
     border: none;
     font-weight: bold;
     transition: 0.3s;
-    width: 200px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer; 
-    color: black; 
-    margin: 0 auto;
 }
 
-.appointment-btn:hover {
+.appointment-btn:hover{
     background-color: #d88329;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-select{
+/*? Table */
+.table-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #B1C29E;
+    margin-bottom: 40px;
+}
+
+
+.total-contaiener{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.table-container{
+    width: 100%;
+    margin-top: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+}
+.table-container td {
+    text-align: center;
+    padding: 10px;
+}
+
+.table-container th {
+    text-align: center;
+    padding: 10px;
+    background-color: #F0A04B;
     border-radius: 5px;
-    font-size: 1rem;
+}
+
+.editBtn{
+    background-color: #F0A04B;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.editBtn:hover{
+    background-color: #d88329;
+    transform: scale(1.05);
+}
+
+.deleteBtn{
+    background-color: #ee5641;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.deleteBtn:hover{
+    background-color: #b83220;
+    transform: scale(1.05);
 }
