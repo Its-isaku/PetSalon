@@ -4,6 +4,7 @@ let petAge = document.getElementById('petAge');
 let petGender = document.getElementById('petGender');
 let petSpecies = document.getElementById('petSpecies');
 let petService = document.getElementById('petService');
+let petTemperaments = document.getElementById('petTemperaments');
 let petBreed = document.getElementById('petBreed');
 let registerButton = document.getElementById('register');
 let goHomeButton = document.getElementById('returnHome');
@@ -22,12 +23,13 @@ window.addEventListener('scroll', function() {
 });
 
 //? Pet constructor
-function Pet(name, age, gender, species, service, breed) {
+function Pet(name, age, gender, species, service, temperaments, breed) {
     this.name = name;
     this.age = age;
     this.gender = gender;
     this.species = species;
     this.service = service;
+    this.temperaments = temperaments;
     this.breed = breed;
 }
 
@@ -46,6 +48,7 @@ function displayPets() {
                 <p class="card-description">Gender: ${pets[i].gender}</p>
                 <p class="card-description">Species: ${pets[i].species}</p>
                 <p class="card-description">Service: ${pets[i].service}</p>
+                <p class="card-description">Temperaments: ${pets[i].temperaments}</p>
                 <p class="card-description">Breed: ${pets[i].breed}</p>
                 ${pets[i].species === "Cat" ? '<img src="img/cat-icon.png" class="species-img">' 
                 : pets[i].species === "Dog" ? '<img src="img/dog-icon.png" class="species-img">' : ''}
@@ -59,11 +62,25 @@ function displayPets() {
     }
 }
 
-//? Function to displayPets pets in a table
 function displayTable() {
     let table = document.getElementById("table-pets");
     if (!table) return; //? Verificar si la tabla existe
 
+    //? Clear the table first to prevent duplicate entries but preserve headers
+    table.innerHTML = `
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Specie</th>
+            <th>Service</th>
+            <th>Temperaments</th>
+            <th>Breed</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    `;
+    
     for (let i = 0; i < pets.length; i++) {
         table.innerHTML += `
         <tr>
@@ -72,6 +89,7 @@ function displayTable() {
             <td>${pets[i].gender}</td>
             <td>${pets[i].species}</td>
             <td>${pets[i].service}</td>
+            <td>${pets[i].temperaments}</td>
             <td>${pets[i].breed}</td>
             <td><button onclick="editPet(${i})" class="editBtn">Edit</button></td>
             <td><button onclick="deletePet(${i})" class="deleteBtn">Delete</button></td>
@@ -80,13 +98,43 @@ function displayTable() {
     }
 }
 
+function displayTotals(){
+    let total = pets.length;
+    let groomingTotal = 0;
+    let hairCutTotal = 0;
+    let petBathTotal = 0;
+    let nailTrimTotal = 0;
+
+    for (let pet of pets) {
+        if (pet.service === "Grooming")
+            groomingTotal++;
+        if (pet.service === "Hair Cut")
+            hairCutTotal++;
+        if (pet.service === "Pet Bath")
+            petBathTotal++;
+        if (pet.service === "Nail Trim")
+            nailTrimTotal++;
+    }
+
+    let totalServices = document.getElementById("totals");
+    
+    //? Clear the totals first
+    totalServices.innerHTML = "";
+    totalServices.innerHTML += `
+    <p><span>Total:${total}</span></p>
+    <p><span>Grooming:${groomingTotal}</span></p>
+    <p><span>Haircut:${hairCutTotal}</span></p>
+    <p><span>Pet bathing:${petBathTotal}</span></p>
+    <p><span>Nail trim:${nailTrimTotal}</span></p>
+    `;
+}
 
 //TODO: make it show it in the HTML ass a small
 //? Function to register a new pet
 function register(event) {
 
     //? Create new pet object
-    let newPet = new Pet(petName.value, petAge.value, petGender.value, petSpecies.value, petService.value, petBreed.value);
+    let newPet = new Pet(petName.value, petAge.value, petGender.value, petSpecies.value, petService.value, petTemperaments.value, petBreed.value);
 
     //? Check if the new pet object is valid
     if (isValid(newPet)) {
@@ -102,6 +150,9 @@ function register(event) {
 
         //? Display the updated list of pets in the table
         displayTable();
+
+        //? Displays te totals
+        displayTotals()
     }
 }
 
@@ -139,6 +190,11 @@ function isValid(pet) {
             validation = false;
             alert("Please enter a service for the pet.");
         }
+
+        if (pet.temperaments === "") {
+            validation = false;
+            alert("Please enter a temperament for the pet.");
+        }
         
         if (pet.breed === "") {
             validation = false;
@@ -155,6 +211,7 @@ function deletePet(index) {
     localStorage.setItem("pets", JSON.stringify(pets)); 
     displayPets();
     displayTable();
+    displayTotals()
 }
 
 function editPet(index) {
@@ -165,6 +222,7 @@ function editPet(index) {
     let newGender = prompt("Enter the new gender for the pet:", pet.gender);
     let newSpecies = prompt("Enter the new species for the pet:", pet.species);
     let newService = prompt("Enter the new service for the pet:", pet.service);
+    let newTemperaments = prompt("Enter the new temperament for the pet:", pet.temperaments); 
     let newBreed = prompt("Enter the new breed for the pet:", pet.breed);
 
     //? Update the pet object with the new values
@@ -173,6 +231,7 @@ function editPet(index) {
     pet.gender = newGender;
     pet.species = newSpecies;
     pet.service = newService;
+    pet.temperaments = newTemperaments; 
     pet.breed = newBreed;
 
     //? Save the updated pets array to local storage
@@ -181,8 +240,8 @@ function editPet(index) {
     //? Display the updated list of pets
     displayPets();
     displayTable();
+    displayTotals()
 }
-
 
 //? Function to clear the form
 function clearForm() {
@@ -191,6 +250,7 @@ function clearForm() {
     petGender.value = "";
     petSpecies.value = "";
     petService.value = "";
+    petTemperaments.value = "";
     petBreed.value = "";
 }
 
@@ -212,12 +272,12 @@ function init() {
     //? Get pets from local storage
     let storedPets = localStorage.getItem("pets");
     pets = storedPets ? JSON.parse(storedPets) : [];
-
+    
     //? Add default pets if there are no pets in local storage
     if (pets.length === 0) {
-        pets.push(new Pet("Bella", 6, "Female", "Cat", "Grooming", "American Shorthair"));
-        pets.push(new Pet("Kira", 6, "Female", "Cat", "Grooming", "Siamese"));
-        pets.push(new Pet("Chipi", 5, "Female", "Cat", "Grooming", "Tabby"));
+        pets.push(new Pet("Bella", 6, "Female", "Cat", "Grooming", "Social", "American Shorthair"));
+        pets.push(new Pet("Kira", 6, "Female", "Cat", "Grooming", "Social", "Siamese"));
+        pets.push(new Pet("Chipi", 5, "Female", "Cat", "Grooming", "Nervous", "Tabby"));
         localStorage.setItem("pets", JSON.stringify(pets)); //? Store default pets in local storage
     }
 
@@ -226,20 +286,9 @@ function init() {
 
     //? Display pets in table
     displayTable();
-}
 
-//TODO: make it show it in the HTML in the register table for assigment 3
-function Total() {
-    let total = pets.length;
-    let gTotal = 0;
-
-    for (let pet of pets) {
-        if (pet.service === "Grooming")
-            gTotal++;
-    }
-
-    console.log("Total number of pets groomed: " + gTotal);
-    console.log("Total number of pets: " + total);
+    //? Displays te totals
+    displayTotals()
 }
 
 //? Call init function

@@ -55,6 +55,16 @@
                             <option value="Nail trim">Nail trim</option>
                         </select>
                     </div>
+
+                    <div class="input-group">
+                        <label>Temperaments:</label>
+                        <select type="text" id="petTemperaments">
+                            <option value="" disabled selected>Select a option</option>
+                            <option value="Social">Social</option>
+                            <option value="Nervous">Nervous</option>
+                            <option value="Agresive">Agresive</option>
+                        </select>
+                    </div>
                 
                     <div class="input-group">
                         <label>Pet Breed:</label>
@@ -71,24 +81,10 @@
             <h1>Registered Pets</h1>
 
             <div class="total-contaiener" id="totals">
-                <p><span>Total:</span></p>
-                <p><span>Grooming:</span></p>
-                <p><span>Pet bathing:</span></p>
-                <p><span>Nail trim:</span></p>
-                
+            <!-- Pet Totals will display here -->
             </div>
 
             <table class="table-container" id="table-pets">
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Specie</th>
-                        <th>Service</th>
-                        <th>Breed</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
                     <!-- Pet objects will appear here -->
             </table>
         </div>
