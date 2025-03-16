@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/services.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header-container">
+        <nav class="nav-bar">
+            <a href="./index.html">Home</a>
+            <a href="./services.html">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="logo">
+            <img src="./img/logo.png">
+        </div>
+
+        <div>
+            <a class="service-btn" href="./index.html">
+                <span>Go Back</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <h2>Register a new service</h2>
+        
+        <div class="form-container">
+            <div class="img-item">
+                <img src="./img/portrait-dog.jpg" alt="">
+            </div>
+
+            <div class="form-card">
+                <h1>Register Your Pet</h1>
+
+                <form id="registerForm" class="form">
+                    <div class="input-group">
+                        <label for="serviceTitle">Service Title</label>
+                        <input type="text" id="serviceTitle">
+                        <div class="smallError">input is required</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="servicePrice">Service Price</label>
+                        <input type="text" id="servicePrice">
+                        <div class="smallPrice"> input is required</div>
+                    </div>
+                
+                    <button class="service-btn" id="serviceBtn">Register</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <h1>Registered Services</h1>
+
+            <table class="table-container">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Price</th>
+                        <th>edit</th>
+                        <th>delete</th>
+                    </tr>
+                </thead>
+                <tbody id="table-services">
+                    <!-- Services will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="./scripts/services.js"></script>
+</body>
+</html>

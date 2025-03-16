@@ -108,11 +108,11 @@ function displayTotals(){
     for (let pet of pets) {
         if (pet.service === "Grooming")
             groomingTotal++;
-        if (pet.service === "Hair Cut")
+        if (pet.service === "Haircut")
             hairCutTotal++;
-        if (pet.service === "Pet Bath")
+        if (pet.service === "Pet bathingh")
             petBathTotal++;
-        if (pet.service === "Nail Trim")
+        if (pet.service === "Nail trim")
             nailTrimTotal++;
     }
 
@@ -257,14 +257,6 @@ function clearForm() {
 //? Event listener for register button
 if (registerButton) {
     registerButton.addEventListener('click', register);
-}
-//? Event listener for go home button
-if (goHomeButton) {
-    goHomeButton.addEventListener('click', function(event) {
-        event.preventDefault();
-        console.log("Go Home button clicked");
-        window.location.href = "index.html";
-    });
 }
 
 //? Init function
