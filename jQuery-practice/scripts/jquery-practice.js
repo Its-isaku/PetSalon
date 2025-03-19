@@ -14,7 +14,7 @@ console.log(htmlElement2);
 
 //? byTag (1: js, 2: jQuery)
 let htmlElement3 = document.getElementsByTagName("p");
-htmlElement3 = $("p");
+htmlElement3 = $("p"); 
 console.log(htmlElement3);
 
 //? ID selector 

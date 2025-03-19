@@ -1,0 +1,26 @@
+body {
+    background-color: #fff;
+    color: #333;
+    transition: .5s; 
+}
+
+button, select {
+    transition: .5s;
+}
+
+
+.darkMode {
+    background-color: #333;
+    color: #fff;
+    transition: .5s;
+}
+
+.darkMode button {
+    background-color: #555;
+    color: #fff;
+}
+
+.darkMode select {
+    background-color: #555;
+    color: #fff;
+}

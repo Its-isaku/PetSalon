@@ -79,11 +79,8 @@ function deleteService(index) {
     let storedServices = localStorage.getItem("services");
     let services = storedServices ? JSON.parse(storedServices) : [];
     
-    //? Get service name for success message
-    const serviceName = services[index].name;
-    
     //? Remove the service at the specified index
-    services.splice(index, 1);
+    services.splice(index, 1); //? remove 1 element at index
     
     //? Save updated services back to localStorage
     localStorage.setItem("services", JSON.stringify(services));

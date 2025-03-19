@@ -33,6 +33,7 @@ function Pet(name, age, gender, species, service, temperaments, breed) {
     this.breed = breed;
 }
 
+
 //? Function to displayPets pets in cards
 function displayPets() {
     let card = document.getElementById("card");
@@ -110,7 +111,7 @@ function displayTotals(){
             groomingTotal++;
         if (pet.service === "Haircut")
             hairCutTotal++;
-        if (pet.service === "Pet bathingh")
+        if (pet.service === "Pet bathing")
             petBathTotal++;
         if (pet.service === "Nail trim")
             nailTrimTotal++;
@@ -156,6 +157,25 @@ function register(event) {
     }
 }
 
+//? Function to display services from your existing localStorage data
+function displayServices(){
+    let storedServices = localStorage.getItem("services");
+    let services = storedServices ? JSON.parse(storedServices) : [];
+    let serviceOptions = document.getElementById("petService");
+
+    if (!serviceOptions) return; 
+
+    serviceOptions.innerHTML = "";
+    serviceOptions.innerHTML += `<option value="" disabled selected>Select a option</option>`;
+    
+    //? Check if services exists and has items
+    if (services && services.length > 0) {
+        for (let service of services) {
+            serviceOptions.innerHTML += `<option value="${service.namee}">${service.name}</option>`;
+        }
+    }
+}
+
 //? Function to validate form
 function isValid(pet) {
     let validation = true;
@@ -175,7 +195,6 @@ function isValid(pet) {
             validation = false;
             alert("Please enter an age for the pet.");
         }
-        
         if (pet.gender === "") {
             validation = false;
             alert("Please enter a gender for the pet.");
@@ -281,6 +300,9 @@ function init() {
 
     //? Displays te totals
     displayTotals()
+
+    //? Display services
+    displayServices();
 }
 
 //? Call init function
