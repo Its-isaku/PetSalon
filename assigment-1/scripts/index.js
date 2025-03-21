@@ -5,7 +5,7 @@ let petGender = document.getElementById('petGender');
 let petSpecies = document.getElementById('petSpecies');
 let petService = document.getElementById('petService');
 let petTemperaments = document.getElementById('petTemperaments');
-let petBreed = document.getElementById('petBreed');
+let petBreed = document.getElementById('petBreed'); 
 let registerButton = document.getElementById('register');
 let goHomeButton = document.getElementById('returnHome');
 
@@ -163,17 +163,28 @@ function displayServices(){
     let services = storedServices ? JSON.parse(storedServices) : [];
     let serviceOptions = document.getElementById("petService");
 
-    if (!serviceOptions) return; 
+    if (!serviceOptions) return;  
 
     serviceOptions.innerHTML = "";
     serviceOptions.innerHTML += `<option value="" disabled selected>Select a option</option>`;
     
-    //? Check if services exists and has items
-    if (services && services.length > 0) {
-        for (let service of services) {
-            serviceOptions.innerHTML += `<option value="${service.namee}">${service.name}</option>`;
-        }
+    // If no services exist, add initial services
+    if (!services || services.length === 0) {
+        services = [
+            {name: "Grooming", price: 30},
+            {name: "Haircut", price: 25},
+            {name: "Pet bathing", price: 20},
+            {name: "Nail trim", price: 15}
+        ];
+        localStorage.setItem("services", JSON.stringify(services));
     }
+    
+    //? Add services to dropdown
+    for (let service of services) {
+        serviceOptions.innerHTML += `<option value="${service.name}">${service.name}</option>`;
+    }
+    
+    console.log("Services loaded:", services);
 }
 
 //? Function to validate form
@@ -280,9 +291,12 @@ if (registerButton) {
 
 //? Init function
 function init() {
+    console.log("Initializing index.js...");
+    
     //? Get pets from local storage
     let storedPets = localStorage.getItem("pets");
     pets = storedPets ? JSON.parse(storedPets) : [];
+    console.log("Loaded pets from localStorage:", pets);
     
     //? Add default pets if there are no pets in local storage
     if (pets.length === 0) {
@@ -290,6 +304,7 @@ function init() {
         pets.push(new Pet("Kira", 6, "Female", "Cat", "Grooming", "Social", "Siamese"));
         pets.push(new Pet("Chipi", 5, "Female", "Cat", "Grooming", "Nervous", "Tabby"));
         localStorage.setItem("pets", JSON.stringify(pets)); //? Store default pets in local storage
+        console.log("Added default pets:", pets);
     }
 
     //? Display pets
@@ -298,11 +313,23 @@ function init() {
     //? Display pets in table
     displayTable();
 
-    //? Displays te totals
-    displayTotals()
+    //? Displays the totals
+    displayTotals();
+
+    //? Check services in localStorage before displaying
+    let storedServices = localStorage.getItem("services");
+    console.log("Services in localStorage before displayServices:", storedServices);
 
     //? Display services
     displayServices();
+    
+    //? Verify the service dropdown has options
+    let serviceOptions = document.getElementById("petService");
+    if (serviceOptions) {
+        console.log("Service dropdown options:", serviceOptions.innerHTML);
+    } else {
+        console.log("Service dropdown element not found");
+    }
 }
 
 //? Call init function

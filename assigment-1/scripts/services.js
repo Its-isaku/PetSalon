@@ -189,6 +189,9 @@ function addInitialServices() {
         ];
         
         localStorage.setItem("services", JSON.stringify(initialServices));
+        console.log("Initial services added:", initialServices);
+    } else {
+        console.log("Services already exist in localStorage:", services);
     }
     
     displayTable();

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.1.0/ol.css">   
+    <link rel="stylesheet" href="./styles/contact.css">
+    <title>Contact Us</title>
+</head>
+<body>
+
+    <header class="header-container">
+        <nav class="nav-bar">
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./services.html">Services</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+
+        <div class="logo">
+            <img src="./img/logo.png">
+        </div>
+
+        <div class="header-buttons">
+            <a class="appointment-btn" href="./register.html">
+                <span>Book Appointment</span>
+            </a>
+
+            <a class="appointment-btn" href="./index.html">
+                <span>Go Back</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="contact-container">
+            <div class="img-item">
+                <img src="./img/salon.jpg" alt="Contact Us" onerror="this.src='./img/pet-salon.jpg'">
+            </div>
+
+            <div class="contact-cards">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you! Reach out to us with any questions or to schedule an appointment.</p>
+                
+                <div class="card contact-info-card">
+                    <h2>Contact Information</h2>
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <h3>Address</h3>
+                            <p>123 Pet Care Lane<br>San Diego, CA 92101</p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <h3>Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                            Saturday: 9:00 AM - 4:00 PM<br>
+                            Sunday: Closed</p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <h3>Contact</h3>
+                            <p>Phone: (555) 123-4567<br>
+                            Email: info@petsalon.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card message-card">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm" class="form">
+                        <div class="input-group">
+                            <label>Your Name:</label>
+                            <input type="text" id="contactName">
+                        </div>
+                    
+                        <div class="input-group">
+                            <label>Your Email:</label>
+                            <input type="email" id="contactEmail">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Subject:</label>
+                            <input type="text" id="contactSubject">
+                        </div>
+                    
+                        <div class="input-group">
+                            <label>Message:</label>
+                            <textarea id="contactMessage" rows="5"></textarea>
+                        </div>
+                    
+                        <button class="appointment-btn" id="sendMessage">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="card map-card">
+                    <h2>Find Us</h2>
+                    <div class="map" id="map">
+                        <!-- Placeholder for a map -->
+                        <div class="map-placeholder">
+                            <p>Interactive map will be displayed here</p>
+                        </div>
+                    </div>
+                    <p class="directions">Located in the heart of San Diego, our pet salon is easily accessible from major highways and public transportation.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./scripts/contact.js"></script>
+</body>
+</html> 
